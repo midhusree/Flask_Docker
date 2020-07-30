@@ -12,8 +12,8 @@ services:
     ports:
       - 8000:8000
     volumes:
-      - ./app:/usr/src/app/app
-      - ./migrations:/usr/src/app/migrations
+      - app:/home/app/web/app
+      - migrations:/home/app/web/migrations
     restart: always
 
   db:
@@ -26,6 +26,11 @@ services:
       - 5432:5432
     restart: always
     volumes:
-      - ./postgres-data:/var/lib/postgresql/data
+      - postgres-data:/var/lib/postgresql/data
+
+volumes:
+  postgres-data:
+  app:
+  migrations:
 
 
